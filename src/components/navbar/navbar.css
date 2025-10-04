@@ -1,0 +1,8 @@
+.links{
+         transition: .4s all ease-in-out;
+         border-bottom: 1px solid transparent;
+}
+.links:hover{
+         border-bottom: 1px solid #2563eb;
+         scale: 1.05;
+}
