@@ -1,18 +1,27 @@
-import { createTheme, ThemeProvider } from '@mui/material'
+import { createTheme, ThemeProvider, CssBaseline } from '@mui/material'
 import './app.css'
 import NavBar from "./components/navbar/Navbar.jsx"
-
+import { useState } from 'react'
 
 const App = () => {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  function handleDarkMode() {
+    setIsDarkMode(!isDarkMode)
+  }
   const theme = createTheme({
+    palette: {
+      mode: isDarkMode ? 'dark' : 'light',
+    },
     typography: {
       fontFamily: 'tajawal, sans-serif',
     }
   })
   return (
     <ThemeProvider theme={theme}>
-      <div className='App bg-red-900'>
-        <NavBar />
+      <CssBaseline />
+      <div className='App'>
+        <NavBar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} handleDarkMode={handleDarkMode} />
       </div>
 
     </ThemeProvider>
